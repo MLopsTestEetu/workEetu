@@ -9,7 +9,7 @@ from components_py.deploy_model_component.deploy_model_component import deploy_m
 from components_py.inference_component.inference_component import inference
 from components_py.evaluate_component.evaluate_component import evaluate
 
-from kfp.aws import use_aws_secret
+#from kfp.aws import use_aws_secret
 
 
 from kfp import dsl
@@ -46,7 +46,7 @@ def pipeline(
         alpha=alpha,
         l1_ratio=l1_ratio
     )
-    train_task.apply(use_aws_secret(secret_name="aws-secret"))
+    #train_task.apply(use_aws_secret(secret_name="aws-secret"))
 
     evaluate_task = evaluate(
         run_id=train_task.outputs["run_id"],
