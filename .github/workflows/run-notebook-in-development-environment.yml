@@ -1,30 +1,42 @@
 name: Start a run from Jupyter Notebook on local server via self-hosted Github Actions runner
-
+ 
 on:
-  push:
-    branches:
-      - development
-    paths:
-      - 'notebooks/**'
 
+  push:
+
+    branches:
+
+      - development
+
+    paths:
+
+      - 'notebooks/**'
+ 
 jobs:
+
   run-notebook-in-development-environment:
+
     runs-on: self-hosted
-    
+
     steps:
-    - uses: actions/checkout@v4
-    
-    - name: Set up Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.10'
-        
+
+    - uses: actions/checkout@v2
+
     - name: Install dependencies
+
       run: |
-        python3 -m pip install --upgrade pip --break-system-packages
-        pip3 install jupyter nbconvert "kfp>=2.0.0" --break-system-packages
-        
-    - name: Connect to local server and run the Notebook
+
+        python -m pip install --upgrade pip
+
+        pip install jupyter
+
+        python -m pip install kfp==1.8.22
+
+    - name: Connect to local server and run the Notebook      
+
       run: |       
-        # Execute the Jupyter Notebook and overwrite the existing file with the results
+
+        source ~/mlops-venv/bin/activate
+
         jupyter nbconvert --execute --to notebook --inplace notebooks/demo-pipeline.ipynb
+ 
