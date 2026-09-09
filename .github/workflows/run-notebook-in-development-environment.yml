@@ -26,17 +26,13 @@ jobs:
 
       run: |
 
-        python -m pip install --upgrade pip
+        python3 -m pip install --upgrade pip --break-system-packages
 
-        pip install jupyter
-
-        python -m pip install kfp==1.8.22
+        python3 -m pip install "kfp>=2.0.0" --break-system-packages
 
     - name: Connect to local server and run the Notebook      
 
       run: |       
-
-        source ~/mlops-venv/bin/activate
 
         jupyter nbconvert --execute --to notebook --inplace notebooks/demo-pipeline.ipynb
  
