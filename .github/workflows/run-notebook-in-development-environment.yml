@@ -22,7 +22,7 @@ jobs:
     - name: Install dependencies
       run: |
         python3 -m pip install --upgrade pip --break-system-packages
-        pip3 install jupyter nbconvert kfp~=1.8.14 --break-system-packages
+        pip3 install jupyter nbconvert "kfp>=2.0.0" --break-system-packages
         
     - name: Connect to local server and run the Notebook
       run: |       
