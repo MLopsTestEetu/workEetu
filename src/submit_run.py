@@ -1,4 +1,3 @@
-# submit_run.py
 import kfp
 import sys
 
@@ -9,7 +8,6 @@ from pipelines.pipeline_arg.pipeline_arg import arguments
 def submit_pipeline():
 
     client = kfp.Client() 
-    
 
     # Define your experiment and run name
     experiment_name = "demo-experiment"
@@ -21,7 +19,6 @@ def submit_pipeline():
         arguments=arguments,
         run_name=run_name,
         experiment_name=experiment_name,
-        mode=kfp.dsl.PipelineExecutionMode.V2_COMPATIBLE,
         enable_caching=False,
     )
 
