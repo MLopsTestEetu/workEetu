@@ -34,5 +34,5 @@ jobs:
 
       run: |       
 
-        åython3 -m jupyter nbconvert --execute --to notebook --inplace notebooks/demo-pipeline.ipynb
+        python3 -m jupyter nbconvert --execute --to notebook --inplace notebooks/demo-pipeline.ipynb
  
