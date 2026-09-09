@@ -28,11 +28,11 @@ jobs:
 
         python3 -m pip install --upgrade pip --break-system-packages
 
-        python3 -m pip install "kfp>=2.0.0" --break-system-packages
+        python3 -m pip install jupyter nbconvert "kfp>=2.0.0" --break-system-packages
 
     - name: Connect to local server and run the Notebook      
 
       run: |       
 
-        jupyter nbconvert --execute --to notebook --inplace notebooks/demo-pipeline.ipynb
+        åython3 -m jupyter nbconvert --execute --to notebook --inplace notebooks/demo-pipeline.ipynb
  
